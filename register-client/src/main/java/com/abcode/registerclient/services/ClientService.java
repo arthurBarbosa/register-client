@@ -1,6 +1,7 @@
 package com.abcode.registerclient.services;
 
 import com.abcode.registerclient.dto.ClientDTO;
+import com.abcode.registerclient.entities.Client;
 import com.abcode.registerclient.repositories.ClientRepository;
 import com.abcode.registerclient.services.exceptions.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,5 +26,21 @@ public class ClientService {
     public ClientDTO findById(Long id) {
         var entityClient = repository.findById(id);
         return new ClientDTO(entityClient.orElseThrow(() -> new ResourceNotFoundException("Entity not found")));
+    }
+
+    @Transactional
+    public ClientDTO insert(ClientDTO dto) {
+        var entity = new Client();
+        copyDtoToEntity(dto, entity);
+        entity = repository.save(entity);
+        return new ClientDTO(entity);
+    }
+
+    private void copyDtoToEntity(ClientDTO dto, Client entity) {
+        entity.setName(dto.getName());
+        entity.setCpf(dto.getCpf());
+        entity.setIncome(dto.getIncome());
+        entity.setBirthDate(dto.getBirthDate());
+        entity.setChildren(dto.getChildren());
     }
 }
