@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { ClientCreateComponent } from './views/client/client-create/client-create.component';
-import { ClientDeleteComponent } from './views/client/client-delete/client-delete.component';
-import { ClientUpdateComponent } from './views/client/client-update/client-update.component';
-import { ClientComponent } from './views/client/client.component';
+import { ClientCreateComponent } from './components/client/client-create/client-create.component';
+import { ClientDeleteComponent } from './components/client/client-delete/client-delete.component';
+import { ClientUpdateComponent } from './components/client/client-update/client-update.component';
+import { ClientComponent } from './components/client/client.component';
 import { HomeComponent } from './views/home/home.component';
 
 const routes: Routes = [

@@ -21,18 +21,20 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import { FooterComponent } from './components/template/footer/footer.component';
 import { NavComponent } from './components/template/nav/nav.component';
 import { HomeComponent } from './views/home/home.component';
-import { ClientComponent } from './views/client/client.component';
-import { ClientCreateComponent } from './views/client/client-create/client-create.component';
-import { ClientReadComponent } from './views/client/client-read/client-read.component';
-import { ClientRead2Component } from './views/client/client-read2/client-read2.component';
+import { ClientComponent } from './components/client/client.component';
+import { ClientCreateComponent } from './components/client/client-create/client-create.component';
+import { ClientReadComponent } from './components/client/client-read/client-read.component';
+import { ClientRead2Component } from './components/client/client-read2/client-read2.component';
+import { ClientUpdateComponent } from './components/client/client-update/client-update.component';
+import { ClientDeleteComponent } from './components/client/client-delete/client-delete.component';
+import { registerLocaleData } from '@angular/common';
+
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 
 import localePt from '@angular/common/locales/pt';
-import { registerLocaleData } from '@angular/common';
-import { ClientUpdateComponent } from './views/client/client-update/client-update.component';
-import { ClientDeleteComponent } from './views/client/client-delete/client-delete.component';
+
 
 registerLocaleData(localePt);
 
