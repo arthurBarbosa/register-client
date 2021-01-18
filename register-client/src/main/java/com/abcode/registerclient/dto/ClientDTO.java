@@ -1,10 +1,12 @@
 package com.abcode.registerclient.dto;
 
 import com.abcode.registerclient.entities.Client;
+import org.hibernate.validator.constraints.br.CPF;
 
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.NotBlank;
 import java.io.Serializable;
 import java.time.Instant;
 import java.time.LocalDate;
@@ -14,7 +16,11 @@ public class ClientDTO implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @NotBlank(message = "Campo nome é obrigatório")
     private String name;
+
+    @NotBlank(message = "Campo cpf é obrigatório")
+    @CPF
     private String cpf;
     private Double income;
     private LocalDate birthDate;

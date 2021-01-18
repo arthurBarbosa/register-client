@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { EMPTY, Observable } from 'rxjs';
@@ -24,8 +24,11 @@ export class ClientService {
     );
   }
 
-  read(): Observable<Client[]> {
-    return this.http.get<Client[]>(this.baseUrl).pipe(
+  read(page, size): Observable<Client[]> {
+    const params = new HttpParams()
+    .set('page', page)
+    .set('linesPerPage', size)
+    return this.http.get<Client[]>(`${this.baseUrl}?${params.toString()}`).pipe(
       map(obj => obj),
       catchError(e => this.errorHandler(e))
     );
@@ -65,7 +68,8 @@ export class ClientService {
   }
 
   errorHandler(e: any): Observable<any> {
-    this.showMessage('Ocorreu um erro!', true);
+    this.showMessage(e.error.message, true);
+    console.log(e)
     return EMPTY
   }
 }

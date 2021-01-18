@@ -7,3 +7,10 @@ export interface Client {
         children: number;     
         
 }
+
+export interface PaginatorClient{
+        content: Client[];
+        totalElements: number,
+        size: number;
+        number: number;
+}

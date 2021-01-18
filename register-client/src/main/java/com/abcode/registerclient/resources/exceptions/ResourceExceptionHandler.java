@@ -3,6 +3,7 @@ package com.abcode.registerclient.resources.exceptions;
 import com.abcode.registerclient.services.exceptions.ResourceNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
@@ -20,6 +21,18 @@ public class ResourceExceptionHandler {
         error.setStatus(status.value());
         error.setError("Resource not found");
         error.setMessage(e.getMessage());
+        error.setPath(request.getRequestURI());
+        return ResponseEntity.status(status).body(error);
+    }
+
+    @ExceptionHandler(MethodArgumentNotValidException.class)
+    public ResponseEntity<StandardError> entityNotFound(MethodArgumentNotValidException e, HttpServletRequest request) {
+        HttpStatus status = HttpStatus.NOT_ACCEPTABLE;
+        StandardError error = new StandardError();
+        error.setTimestamp(Instant.now());
+        error.setStatus(status.value());
+        error.setError("Campo inválido/vazio");
+        error.setMessage(e.getBindingResult().getFieldError().getDefaultMessage());
         error.setPath(request.getRequestURI());
         return ResponseEntity.status(status).body(error);
     }
