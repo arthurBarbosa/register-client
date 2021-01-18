@@ -1,18 +1,40 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-
+import { FormsModule } from '@angular/forms';
+import { NgModule, LOCALE_ID } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { HeaderComponent } from './components/template/header/header.component';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatGridListModule} from '@angular/material/grid-list';
+
 import { FooterComponent } from './components/template/footer/footer.component';
 import { NavComponent } from './components/template/nav/nav.component';
 import { HomeComponent } from './views/home/home.component';
 import { ClientComponent } from './views/client/client.component';
+import { ClientCreateComponent } from './views/client/client-create/client-create.component';
+import { ClientReadComponent } from './views/client/client-read/client-read.component';
+import { ClientRead2Component } from './views/client/client-read2/client-read2.component';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
+
+import localePt from '@angular/common/locales/pt';
+import { registerLocaleData } from '@angular/common';
+import { ClientUpdateComponent } from './views/client/client-update/client-update.component';
+import { ClientDeleteComponent } from './views/client/client-delete/client-delete.component';
+
+registerLocaleData(localePt);
 
 @NgModule({
   declarations: [
@@ -21,7 +43,12 @@ import { ClientComponent } from './views/client/client.component';
     FooterComponent,
     NavComponent,
     HomeComponent,
-    ClientComponent
+    ClientComponent,
+    ClientCreateComponent,
+    ClientReadComponent,
+    ClientRead2Component,
+    ClientUpdateComponent,
+    ClientDeleteComponent
   ],
   imports: [
     BrowserModule,
@@ -30,9 +57,23 @@ import { ClientComponent } from './views/client/client.component';
     MatToolbarModule,
     MatSidenavModule,
     MatListModule,
-    MatCardModule
+    MatCardModule,
+    MatButtonModule,
+    MatSnackBarModule,
+    HttpClientModule,
+    FormsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatDatepickerModule,
+    MatGridListModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule
   ],
-  providers: [],
+  providers: [{
+    provide: LOCALE_ID,
+    useValue: 'pt-BR'
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

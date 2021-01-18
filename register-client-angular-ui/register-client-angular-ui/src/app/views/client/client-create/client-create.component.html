@@ -1,0 +1,36 @@
+<mat-card>
+    <mat-card-title>Novo Cliente</mat-card-title>
+    <form class="flex-form">
+
+        <div>
+            <mat-form-field class="w50">
+                <input matInput placeholder="Nome" [(ngModel)]="client.name" name="name"/>
+            </mat-form-field>
+    
+            <mat-form-field class="w50">
+                <input matInput placeholder="CPF" [(ngModel)]="client.cpf" name="cpf" />
+            </mat-form-field>
+        </div>
+
+        <div class="w100">
+            <mat-form-field class="w25" >
+                <input matInput type="date" placeholder="Data de nascimento" [(ngModel)]="client.birthDate" name="birthDate"/>
+            </mat-form-field>
+
+            <mat-form-field class="w25">
+                <input matInput placeholder="Salário" [(ngModel)]="client.income" name="income" />
+            </mat-form-field>
+                
+            <mat-form-field class="w25">
+                <input matInput placeholder="Qtd filhos" [(ngModel)]="client.children" name="children"/>
+            </mat-form-field>
+        </div>
+
+    </form>
+    <button mat-raised-button color="primary" (click)="createClient()">
+        <i class="material-icons">
+            add
+        </i>
+        Salvar
+    </button>
+</mat-card>

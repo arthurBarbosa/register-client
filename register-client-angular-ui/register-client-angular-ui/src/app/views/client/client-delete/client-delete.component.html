@@ -1,0 +1,43 @@
+<mat-card>
+    <mat-card-title>Editando Cliente</mat-card-title>
+    <form class="flex-form" disabled>
+
+        <div>
+            <mat-form-field class="w50">
+                <input matInput placeholder="Nome" disabled [(ngModel)]="client.name" name="name" />
+            </mat-form-field>
+    
+            <mat-form-field class="w50">
+                <input matInput placeholder="CPF" disabled [(ngModel)]="client.cpf" name="cpf" />
+            </mat-form-field>
+        </div>
+
+        <div class="w100">
+            <mat-form-field class="w25" >
+                <input matInput type="date" disabled placeholder="Data de nascimento" [(ngModel)]="client.birthDate" name="birthDate"/>
+            </mat-form-field>
+
+            <mat-form-field class="w25">
+                <input matInput placeholder="Salário" disabled [(ngModel)]="client.income" name="income" />
+            </mat-form-field>
+                
+            <mat-form-field class="w25">
+                <input matInput placeholder="Qtd filhos" disabled [(ngModel)]="client.children" name="children"/>
+            </mat-form-field>
+        </div>
+
+    </form>
+    <button mat-raised-button color="warn" (click)="deleteClient()">
+        <i class="material-icons">
+        delete_sweep
+        </i>
+        Delete
+    </button>
+
+    <button mat-raised-button  (click)="cancel()">
+        <i class="material-icons">
+            clear
+        </i>
+        Cancelar
+    </button>
+</mat-card>
