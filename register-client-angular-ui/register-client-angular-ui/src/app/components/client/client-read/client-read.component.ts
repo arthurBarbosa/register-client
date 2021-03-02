@@ -31,9 +31,9 @@ export class ClientReadComponent implements OnInit {
 
   getAllClients(page = 0, size = 0){
     this.clientService.read(page, size).subscribe(response => {
-      this.clients = response.content;
-      this.totalElements = response.totalElements;
-      this.page = response.number;
+      this.clients = response['content'];
+      this.totalElements = response['totalElements'];
+      this.page = response['number'];
     })
   }
 

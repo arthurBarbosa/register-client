@@ -26,7 +26,7 @@ export class ClientDeleteComponent implements OnInit {
   }
 
   deleteClient() {
-    this.clientService.delete(this.client.id).subscribe(() => {
+    this.clientService.delete(this.client.id.toString()).subscribe(() => {
       this.clientService.showMessage('Cliente excluído com sucesso.')
       this.router.navigate(['/clients']);
     })

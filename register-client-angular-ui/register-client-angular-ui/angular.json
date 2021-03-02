@@ -106,5 +106,8 @@
       }
     }
   },
-  "defaultProject": "register-client-angular-ui"
+  "defaultProject": "register-client-angular-ui",
+  "cli": {
+    "analytics": "1ed816cf-6545-49bb-95a7-a816f5f9f348"
+  }
 }
